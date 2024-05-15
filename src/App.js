@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./pages/realUpdate/realUpdate";
 import Select from "./pages/select/select";
 import Effect from "./pages/effect/effect";
+import CustomForm from "./pages/customForm/customForm";
 
 function App() {
   const [state, setState] = useState("");
@@ -39,6 +40,13 @@ function App() {
         >
           초기화
         </button>
+        <button
+          onClick={() => {
+            setState("custom");
+          }}
+        >
+          커스텀 Input
+        </button>
       </div>
 
       {state === "real" && <Form />}
@@ -53,6 +61,7 @@ function App() {
           업데이트
         </button>
       )}
+      {state === "custom" && <CustomForm />}
     </div>
   );
 }
