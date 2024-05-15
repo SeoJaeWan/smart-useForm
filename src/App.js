@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "./pages/realUpdate/realUpdate";
-import CheckBox from "./pages/checkbox/checkbox";
+import Select from "./pages/select/select";
 import Callback from "./pages/callback/callback";
 import Effect from "./pages/effect/effect";
 
@@ -25,10 +25,10 @@ function App() {
         </button>
         <button
           onClick={() => {
-            setState("checkbox");
+            setState("select");
           }}
         >
-          체크박스
+          커스텀
         </button>
         <button
           onClick={() => {
@@ -47,7 +47,7 @@ function App() {
       </div>
 
       {state === "real" && <Form />}
-      {state === "checkbox" && <CheckBox />}
+      {state === "select" && <Select />}
       {state === "callback" && <Callback />}
       {state === "useEffect" && <Effect />}
     </div>

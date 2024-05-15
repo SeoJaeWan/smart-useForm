@@ -10,6 +10,8 @@ const Form = () => {
 
   const isActive = Object.values(form.watch()).every((value) => value);
 
+  console.log("update", form.formState.isDirty);
+
   return (
     <div
       style={{
