@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 
-const Effect = () => {
-  const form = useForm();
-
-  const isActive = form.watch();
+const Effect = ({ data }) => {
+  const form = useForm({
+    defaultValues: {
+      value: data.value,
+    },
+  });
 
   return (
     <div
@@ -13,10 +15,7 @@ const Effect = () => {
         gap: "10px",
       }}
     >
-      <input {...form.register("name")} />
-      <input {...form.register("password")} />
-
-      <button>확인</button>
+      {form.watch("value")}
     </div>
   );
 };

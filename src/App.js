@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Form from "./pages/realUpdate/realUpdate";
 import Select from "./pages/select/select";
-import Callback from "./pages/callback/callback";
 import Effect from "./pages/effect/effect";
 
 function App() {
   const [state, setState] = useState("");
+  const [data, setData] = useState({
+    value: 1,
+  });
 
   return (
     <div className="App">
@@ -32,13 +34,6 @@ function App() {
         </button>
         <button
           onClick={() => {
-            setState("callback");
-          }}
-        >
-          데이터 호출
-        </button>
-        <button
-          onClick={() => {
             setState("useEffect");
           }}
         >
@@ -48,8 +43,16 @@ function App() {
 
       {state === "real" && <Form />}
       {state === "select" && <Select />}
-      {state === "callback" && <Callback />}
-      {state === "useEffect" && <Effect />}
+      {state === "useEffect" && <Effect data={data} />}
+      {state === "useEffect" && (
+        <button
+          onClick={() =>
+            setData((prev) => ({ ...prev, value: prev.value + 1 }))
+          }
+        >
+          업데이트
+        </button>
+      )}
     </div>
   );
 }
